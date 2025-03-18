@@ -86,21 +86,21 @@ def hero_attacks(combat_strength, m_health_points):
 
 # Monster's Attack Function
 def monster_attacks(m_combat_strength, health_points):
-    ascii_image2 = """
-           @@@@ @
-      (     @*&@  ,
-    @               %
-     &#(@(@%@@@@@*   /
-      @@@@@.
-               @       /
-                %         @
-            ,(@(*/           %
-               @ (  .@#                 @
+    ascii_image2 = """                                                                 
+           @@@@ @                           
+      (     @*&@  ,                         
+    @               %                       
+     &#(@(@%@@@@@*   /                      
+      @@@@@.                                
+               @       /                    
+                %         @                 
+            ,(@(*/           %              
+               @ (  .@#                 @   
                           @           .@@. @
-                   @         ,
-                      @       @ .@
-                             @
-                          *(*  *
+                   @         ,              
+                      @       @ .@          
+                             @              
+                          *(*  *      
              """
     print(ascii_image2)
     print("    |    Monster's Claw (" + str(m_combat_strength) + ") ---> Player (" + str(health_points) + ")")
@@ -138,36 +138,7 @@ def inception_dream(num_dream_lvls):
         return 1 + int(inception_dream(num_dream_lvls - 1))
 
 # Lab 06 - Question 3 and 4
-def save_game(winner, hero_name="", nums_starts=0):
-    with open("save.txt", "a") as file:
-        if winner == "Hero":
-            file.write(f"Hero {hero_name} has killed the monster gained {nums_starts} stars.\n")
-        elif winner == "Monster":
-            file.write(f"Monster killed the {hero_name}\n")
+
 # Lab 06 - Question 5a
-def lead_game():
-    try:
-        with open("save.txt", "r") as file:
-            print ("    |   Loading from saved file...")
-            lines = file.readlines()
-            if lines:
-                last_line = lines [-1].strip()
-                print(last_line)
-                return last_line
-    except FileNotFoundError:
-        print("No previous game found. Starting fresh...")
-        return None
+
 # Lab 06 - Question 5b
-def adjust_combat_strength(combat_strenght, m_combat_strength):
-    last_game = load_game()
-    if last_game:
-        if "Hero" in last_game and "gained" in last_game:
-            num_starts = int(last_game.split()[-2])
-            if num_starts > 3:
-                print("Increasing the monster's combat strength since Hero won so easily last game")
-                m_combat_strength += 1
-            elif "Monster killed the" in last_game:
-                m_combat_strength += 1
-            print ("Increasing Hero's combat strength since you lost last game")
-        else:
-            print("     |   .. Based on your previous game, neither the hero nor the monster's combat ")
