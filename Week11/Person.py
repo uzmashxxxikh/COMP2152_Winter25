@@ -24,9 +24,4 @@ print("The name of the person is: " + str(person1.name))
 person1.name = "Alfred"
 print("The name of the person is: " + str(person1.name))
 
-<<<<<<< HEAD
 print("Public: " + str(person1.public_prop))
-=======
-
-
->>>>>>> aacd449d20d2906a43a35ed4e969425fe9af8386
